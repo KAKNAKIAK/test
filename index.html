@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  	<meta charset='euc-kr'>
+  	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  	<title>내일투어 여행견적서</title>
+  	<style type'text/css'>
+  	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, feldset, input, textarea, p, blockquote, th, td { margin:0; padding:0; }
+  	ol, ul, li { list-style:none;margin:0px; }
+  	img { vertical-align:middle; border:0; }
+
+    /* --- NEW TAB STYLES --- */
+    .tab-nav {
+      display: flex;
+      border-bottom: 2px solid #009150;
+      margin-top: 30px;
+    }
+    .tab-link {
+      padding: 10px 18px;
+      font-size: 16px;
+      font-family: Nanum Gothic, Malgun Gothic, sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      margin-right: 5px;
+      border-radius: 4px 4px 0 0;
+      color: #343434;
+      outline: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .tab-link:hover {
+      background-color: #e9e9e9;
+    }
+    .tab-link.active {
+      background-color: #ffffff;
+      color: #009150;
+      border-bottom: 2px solid #ffffff;
+      position: relative;
+      top: 1px; /* Adjust based on border-bottom */
+      border-top: 2px solid #009150;
+      border-left: 1px solid #009150;
+      border-right: 1px solid #009150;
+      border-bottom: 1px solid #fff;
+    }
+    .tab-content {
+      border: 1px solid #009150;
+      border-top: none;
+      padding: 25px;
+      border-radius: 0 0 4px 4px;
+      background-color: #ffffff;
+    }
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    /* --- END NEW TAB STYLES --- */
+  	</style>
+</head>
+<body style='color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #f9f9f9;'>
+<div style='color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.05);'>
+	<div class='logo' style='font-size: 28px;text-align: center;padding: 25px 0 20px 0;background-color: #f2f2f2;'><img src='https://www.naeiltour.co.kr/_Img/logo_naeiltour.png' style='width:170px;'></div>
+	<div id='conTainer' style='width: 95%;margin: 0 auto;letter-spacing: -1px;margin-top: 30px;margin-bottom: 25px;'>
+
+        <!-- === TOP FIXED CONTENT (Original) === -->
+		<section style='margin-bottom: 25px;border-radius: 4px;'>
+			<h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>기본 정보</h2>
+			<div class='section-content' style='padding: 0px 0px;'>
+				<div>
+					<h3 style='font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;'>안내사항</h3>
+					<p class='p_text' style='font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;'>고객님께서 문의하신 상품에 대한 일정 및 견적 안내입니다.<br>더 특별하고 소중한 추억을 만들어 드리기 위해 노력하겠습니다.<br>감사합니다.<br></p>
+				</div>
+				<div>
+					<h3 style='font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;'>상품명</h3>
+					<p class='p_text' style='font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;'>나트랑 금까기</p>
+				</div>
+			</div>
+		</section>
+
+		<section style='margin-bottom: 25px;border-radius: 4px;'>
+			<h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>예약자 정보</h2>
+			<div class='section-content' style='padding: 0px 0px;'>
+				<div>
+					<h3 style='font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;'>예약인원</h3>
+					<p class='p_text' style='font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;'>성인 (만 12세 이상) : 2 명
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section style='margin-bottom: 25px;border-radius: 4px;'>
+			<h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>요금 안내</h2>
+			<div class='info_price'>
+				<table style='width: 100%; border-collapse: collapse; font-size:15px; margin-top: 15px;'>
+					<tr>
+						<th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>내역</th>
+						<th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>1인당 금액</th>
+						<th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>인원</th>
+						<th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>총 금액</th>
+						<th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>비고</th>
+					</tr>
+					<tr class='total-row'>
+						<td colspan='3' style='border: 1px solid #ccc; padding: 8px; text-align: center;text-align:center;font-weight: bold;font-size:15px;'>총 합계</td>
+						<td class='price' style='border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-weight: bold;font-size:15px;'>0</td>
+						<td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-weight: bold;'></td>
+					</tr>
+				</table>
+			</div>
+            <!-- === MOVED PRICE TABLE HERE === -->
+            <div class='info_text02' style='line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;'><table style='width:100%;border-collapse:collapse;font-family:sans-serif;font-size:12px;margin-bottom:16px'><thead><tr style='background-color:#f9fafb'><th style='border:1px solid #ddd;padding:8px;text-align:center'>내역</th><th style='border:1px solid #ddd;padding:8px;text-align:center'>1인당 금액</th><th style='border:1px solid #ddd;padding:8px;text-align:center'>인원</th><th style='border:1px solid #ddd;padding:8px;text-align:center'>총 금액</th><th style='border:1px solid #ddd;padding:8px;text-align:center'>비고</th></tr></thead><tbody><tr><td style='border:1px solid #ddd;padding:8px'>성인요금</td><td style='border:1px solid #ddd;padding:8px;text-align:right'>1,099,000</td><td style='border:1px solid #ddd;padding:8px;text-align:center'>6</td><td style='border:1px solid #ddd;padding:8px;text-align:right'>6,594,000</td><td style='border:1px solid #ddd;padding:8px'></td></tr><tr><td style='border:1px solid #ddd;padding:8px'>소아요금</td><td style='border:1px solid #ddd;padding:8px;text-align:right'>999,000</td><td style='border:1px solid #ddd;padding:8px;text-align:center'>2</td><td style='border:1px solid #ddd;padding:8px;text-align:right'>1,998,000</td><td style='border:1px solid #ddd;padding:8px'>만2~12세미만</td></tr></tbody><tfoot><tr style='font-weight:bold'><td colspan='3' style='border:1px solid #ddd;padding:8px;text-align:right'>총 합계</td><td style='border:1px solid #ddd;padding:8px;text-align:right'>8,592,000</td><td style='border:1px solid #ddd;padding:8px'></td></tr></tfoot></table></div>
+		</section>
+        <!-- === END TOP FIXED CONTENT === -->
+
+
+        <!-- === NEW TAB INTERFACE === -->
+        <div class="tab-container">
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-link active" onclick="openTab(event, 'tab-flight')">항공 스케줄</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-include')">포함/불포함</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-itinerary')">일정표</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-other')">기타사항</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-contact')">담당자 정보</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                
+                <!-- Tab Pane 1: 항공 스케줄 -->
+                <div id="tab-flight" class="tab-pane active">
+                    <section style='border-radius: 4px;'>
+                        <!-- <h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>항공 스케줄</h2> -->
+                        <div class='air_SKD'>
+                            <table style='width: 100%; border-collapse: collapse; font-size:15px;'>
+                                <tr>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>편명</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>출발일</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>출발지</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>출발시간</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>도착일</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>도착지</th>
+                                    <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>도착시간</th>
+                                </tr>
+                                <tr>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>ZE 563</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>12월 19일</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>인천</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>19:15</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>12월 19일</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>깜라인 공항(나트랑)</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>23:10</td>
+                                </tr>
+                                <tr>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> ZE 564</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 12월 23일</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 깜라인 공항(나트랑)</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 00:10</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 12월 23일</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 인천</td>
+                                    <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'> 07:45</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Tab Pane 2: 포함/불포함 -->
+                <div id="tab-include" class="tab-pane">
+                    <section style='border-radius: 4px;'>
+                        <!-- <h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>포함/불포함 사항</h2> -->
+                        <div>
+                            <h3 style='font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;font-weight: 600;'>포함 사항</h3>
+                            <ul class='info_text' style='line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;'><div>* 유류할증료, 제세공과금 포함</div><div><br></div><div>&#9992;&#65039; 왕복 항공권</div><div>ㄴ위탁수화물 15kg</div><div><br></div><div>&#127976; 윈덤 가든 깜란 리조트</div><div>ㄴ조식포함</div><div>ㄴ2025-12-19~2025-12-22, 3박</div><div>ㄴ3 Bedroom Garden Pool Villa&nbsp;</div><div><br></div><div>&#128661; 공항 -&gt; 호텔 픽업</div><div><br></div><div>&#128652; 12월20일 빈원더스 투어</div><div>ㄴ차량10시간 (기사포함)</div><div>ㄴ한국어 가이드</div><div>ㄴ케이블카왕복</div><div>ㄴ빈원더스 나트랑 티켓</div><div>ㄴ분수쇼 &amp; 타타쇼 공연티켓</div><div><br></div><div>&#127966;&#65039;21일-판랑사막 지프투어</div><div>ㄴ양떼목장, 쭝선사, 판랑 사막 관광</div><div>ㄴ한국어가이드</div><div>ㄴ단독 투어 10시간</div><div>ㄴ양떼 목장 입장권/쭝선사 방문/판랑 Jeep 차량 및 운전기사</div><div><br></div><div>&#127966;&#65039;22일-나트랑시티투어</div><div>ㄴ한국어가이드</div><div>ㄴ포나가르탑, 나트랑 대성당, 롱선사, 롯데마트, 공항샌딩</div><div>ㄴ단독 투어 10시간</div><div>ㄴ중식포함(반깐세트)</div><div><br></div><div>&#127976; 다이아몬드 베이 호텔</div><div>ㄴ2025-12-22~2025-12-23, 1박</div><div>ㄴ객실 1</div><div><br></div><div>&#128467;&#65039; 고객 맞춤용 추천일정표</div><div><br></div><div>&#128188; 1억원 여행자 보험</div><div><br></div><div>&#127873; 각종할인쿠폰</div><div>└ 면세점 할인 쿠폰</div></ul>
+                        </div>
+                        <div>
+                            <h3 style='font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;font-weight: 600;'>불포함 사항</h3>
+                            <ul class='info_text' style='line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;'>&#9888;&#65039; 현지 개인 경비</ul>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Tab Pane 3: 일정표 -->
+                <div id="tab-itinerary" class="tab-pane">
+                    <section style='border-radius: 4px;'>
+                        <!-- <h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>일정표</h2> -->
+                        <div class='info_text02' style='line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;'><main style='max-width: 750px; margin: auto; padding: 0 16px; font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;'>
+                        <div style='margin-bottom: 16px;'><details open=''><summary style='display: flex; align-items: center; padding: 12px 8px; border-bottom: 1px solid #EEE; background-color: #fdfdfd; cursor: pointer;'><h2 style='font-size: 14px; font-weight: 600; margin:0;'>DAY 1</h2>
+                            </summary>
+                            <div style='padding: 8px;'>
+                            <div style='padding-top: .75rem;'>
+                                        <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#9992;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>한국출발</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>인천 국제공항 출발</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://news.tbs.seoul.kr/Upload/Image/20220608/00000000000001290901.jpg' alt='한국출발' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps?sca_esv=360c8bf8dbd4af24&amp;output=search&amp;q=%EC%9D%B8%EC%B2%9C+%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD&amp;source=lnms&amp;fbs=ABzOT_CZsxZeNKUEEOfuRMhc2yCI6hbTw9MNVwGCzBkHjFwaK_c_FL6GOJnyRA7_JMCOHrQvDHJRP5h7HMObViT4A3aGVgvRigpAHxC4SPKPtDAQK2x60hMwnu29Otnr9hjDsBhlVYMI4V22YwsfNEKJmq3WH98EjRKyOUlN65DBoac6Rdg78O0V087Zl92d6v3Vw3QbcCCZg7R4i8TueifSjCdQfc-xvg&amp;entry=mc&amp;ved=1t:200715&amp;ictx=111' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#9992;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호치민도착</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>베트남 경제의 중심 호치민은 프랑스 식민지 시대의 흔적과 현대적 도시 풍경, 활기찬 거리 문화가 우러진 생동감 넘치는 도시입니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076868190/6275c06411b4e0e87ab9966fbd8b90c0.jpg_3.jpg' alt='호치민도착' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>전용차량 탑승</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; [고객님 성함] 피켓을 든 가이드와 미팅 진행</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>핑크성당</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>1876년 완공된 네오 고딕 양식의 성당입니다. 1957년 보수공사로 핑크색이 되었으며, 전 세계의 '가장 아름다운 핑크빛 명소' 중 하나로 꼽힙니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2pG4dXgjMln-PLVo6z3rO2R3PoObQvk98PQ&amp;s' alt='핑크성당' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EB%96%A4%EB%94%98%EC%84%B1%EB%8B%B9(%ED%95%91%ED%81%AC%EC%84%B1%EB%8B%B9)/@10.7881433,106.6906823,19.75z/data=!4m6!3m5!1s0x31752f3320a1f467:0x78bb00536c22b982!8m2!3d10.7883359!4d106.6906789!16s%2Fm%2F02pywq7?entry=ttu&amp;g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127976;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 체크인</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>아파트 카페</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>주거용 건물을 통째로 개조한 카페 건물입니다. 지금은 사진 명소로 유명한 호치민 필수 관광지입니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076868190/31a5e782c48b8320f5f8716451247e5f.jpg_3.jpg' alt='아파트 카페' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/The+Cafe+Apartment/@10.7739205,106.7035821,21z/data=!4m11!3m10!1s0x31752f0034f2823f:0xe52d2f447bcb65a7!5m4!1s2025-07-12!2i2!4m1!1i2!8m2!3d10.7740586!4d106.7041674!16s%2Fg%2F11y46r2_1d?entry=ttu&amp;g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>랜드마크81</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>베트남 최고층 건물입니다. 79층 스카이덱 전망대에서 전경을 감상한 뒤, 건물 내 현지식 레스토랑에서 저녁 식사를 합니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://i.travelapi.com/lodging/36000000/35220000/35218200/35218105/2d9b4e93_z.jpg' alt='랜드마크81' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EB%9E%9C%EB%93%9C%EB%A7%88%ED%81%AC+81/@10.7953142,106.7214885,18.5z/data=!4m11!3m10!1s0x317527c2f8f30911:0x36ac5073f8c91acd!5m4!1s2025-07-12!2i2!4m1!1i2!8m2!3d10.7951119!4d106.722096!16s%2Fm%2F012hcpml?entry=ttu&amp;g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127976;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 투숙 및 휴식</div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </details>
+                        </div>
+                        <div style='margin-bottom: 16px;'>
+                        <details>
+                            <summary style='display: flex; align-items: center; padding: 12px 8px; border-bottom: 1px solid #EEE; background-color: #fdfdfd; cursor: pointer;'>
+                            <h2 style='font-size: 14px; font-weight: 600; margin:0;'>DAY 2</h2>
+                            </summary>
+                            <div style='padding: 8px;'>
+                            <div style='padding-top: .75rem;'>
+                                        <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 조식 후 가이드 미팅 </div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>무이네로 이동</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 약 3시간 소요</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>중식</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>무이네 랍스터 쌀국수</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>포사이누 참파 사원</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>9세기 참파왕국이 지은 탑 사원입니다. 시바신을 비롯한 여러 신을 모시며, 포사이누 공주의 이름을 따 '포사이누 사원'이라 불립니다. 현재 베트남 국가유적으로 지정되어 있습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://i.travelapi.com/lodging/19000000/18090000/18085100/18085077/edc9701f_z.jpg' alt='포사이누 참파 사원' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EC%B0%B8%ED%8C%8C%EC%9C%A0%EC%A0%81/@10.9365627,108.1450396,18.12z/data=!4m6!3m5!1s0x317685c2c78a61a5:0x602fd89b56a68220!8m2!3d10.9362076!4d108.1461307!16s%2Fg%2F11qpr87yb3?entry=ttu&amp;g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>피쉬소스 박물관</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>베트남 피쉬소스 박물관입니다. 역사와 제조법을 배우고, 시식 및 한국 액젓과 비교도 가능합니다.</div>
+                                            <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/B%E1%BA%A3o+t%C3%A0ng+n%C6%B0%E1%BB%9Bc+m%E1%BA%AFm+L%C3%A0ng+Ch%C3%A0i+X%C6%B0a+-+Fish+Sauce+Museum/@10.9392253,108.1622572,17z/data=!4m16!1m9!3m8!1s0x3176858ee1cd061d:0xa8a5fb8a1d76f1eb!2zQuG6o28gdMOgbmcgbsaw4bubYyBt4bqvbSBMw6BuZyBDaMOgaSBYxrBhIC0gRmlzaCBTYXVjZSBNdXNldW0!8m2!3d10.93922!4d108.1648321!9m1!1b1!16s%2Fg%2F11f5q8yhq4!3m5!1s0x3176858ee1cd061d:0xa8a5fb8a1d76f1eb!8m2!3d10.93922!4d108.1648321!16s%2Fg%2F11f5q8yhq4?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128134;&#127995;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>마사지</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>발마사지</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 60분/ 마사지사 팁 포함</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>한나비치</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>감성적인 해안 카페, 펍, 다양한 포토존이 있는 곳입니다. 평화로우면서도 활기찬 분위기가 지친 마음을 풀어줍니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://i.travelapi.com/lodging/19000000/18090000/18085100/18085077/1ddcde00_z.jpg' alt='한나비치' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/Hanna+Beach/@10.9492287,108.2603518,17.75z/data=!4m6!3m5!1s0x31768f74066103f1:0x8678f87e8d5d6082!8m2!3d10.9495964!4d108.2597865!16s%2Fg%2F11sd481k80?entry=ttu&amp;g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>석식 및 자유시간</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 자유식 (불포함)</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127976;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 투숙 및 휴식</div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </details>
+                        </div>
+                        <div style='margin-bottom: 16px;'>
+                        <details>
+                            <summary style='display: flex; align-items: center; padding: 12px 8px; border-bottom: 1px solid #EEE; background-color: #fdfdfd; cursor: pointer;'>
+                            <h2 style='font-size: 14px; font-weight: 600; margin:0;'>DAY 3</h2>
+                            </summary>
+                            <div style='padding: 8px;'>
+                            <div style='padding-top: .75rem;'>
+                                        <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 조식 후 가이드 미팅</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>와인캐슬 와이너리</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>유럽의 성처럼 웅장한 외관의 와이너리입니다. 와인 시음 및 구매가 가능하며, 유럽풍 건물이라 포토 스팟이 많습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://i.travelapi.com/lodging/4000000/3780000/3779100/3779001/e3f3023e_z.jpg' alt='와인캐슬 와이너리' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/L%C3%A2u+%C4%91%C3%A0i+r%C6%B0%E1%BB%A3u+vang+RD+Phan+Thi%E1%BA%BFt+-+M%C5%A9i+N%C3%A9/@10.9474696,108.1794223,17z/data=!3m1!4b1!4m6!3m5!1s0x317684db87bd9ced:0x2f7a79e7084692fd!8m2!3d10.9474643!4d108.1819972!16s%2Fg%2F11b726v1bm?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>중식 - 신밧드 케밥</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>무이네에서 맛집으로 유명한 신밧드 케밥은 고르는 메뉴에 따라 다른 소스를 사용해 메뉴마다 다른 맛을 느낄 수 있습니다.</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>무이네 사막 지프투어</div>
+                                <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076791638/18bcd951ccc9eca5dc3c0d718af86e35.jpg_3.jpg' alt='무이네 사막 지프투어' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EB%8F%84%EC%9D%B4%EA%B9%9F%EB%8D%94/@10.9496308,108.2951044,18.12z/data=!4m6!3m5!1s0x31768fac53024b1b:0x153b24c8ad4ca418!8m2!3d10.9492961!4d108.2963502!16s%2Fg%2F11j490y2lh?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; ATV 30분 - 성인 2인당 1ATV 포함, 아동 ATV불포함</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>요정의 샘</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>'베트남의 그랜드 캐니언'이라 불리는 곳으로, 붉은 흙과 암벽이 축소판 같은 모습입니다. 흐르는 물을 따라 고운 모래를 밟으며 산책하는 코스입니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076791638/0e525fb4a9df16d28064a62a0529d27e.jpg_3.jpg' alt='요정의 샘' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EC%9A%94%EC%A0%95%EC%9D%98%EC%83%98/@10.9508817,108.2560395,21z/data=!4m6!3m5!1s0x31768f0076b26a11:0xc1b6c86165b495d6!8m2!3d10.9509519!4d108.2561673!16s%2Fg%2F11ly_t6xs4?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>화이트 샌듄</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>주변에 호수가 있어 경치가 매우 아름답고 사막에서의 액티비티를 즐길 수 있습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076791638/e2322b5c7f47c929d5e39de2314ff8b4.jpg_3.jpg' alt='화이트 샌듄' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>풍력발전소</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>코스탈 로드에 위치한 인생샷 명소입니다. 드넓은 풍경 속, 풍력발전소를 배경으로 아름다운 사진을 남길 수 있습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076791638/fa2ee43cf9e5bbf4784204a53adf1121.jpg_3.jpg' alt='풍력발전소' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 인생샷 사진 스팟</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>U자형 도로</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>지평선까지 광활하게 뻗은 U자 도로가 특별한 사진을 만들어 드립니다.</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 인생샷 사진 스팟</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127966;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>레드샌듄</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>일몰이 유명한 무이네의 붉은 모래 사막입니다. 사막 썰매를 즐긴 후, 아름다운 일몰을 배경으로 인생샷을 찍을 수 있습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076776008/0710849adcdeb3cfaef513d41ce3859d.jpg_3.jpg' alt='레드샌듄' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>석식 및 자유시간</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 자유식 (불포함)</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127976;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호텔 투숙 및 휴식</div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </details>
+                        </div>
+                        <div style='margin-bottom: 16px;'>
+                        <details>
+                            <summary style='display: flex; align-items: center; padding: 12px 8px; border-bottom: 1px solid #EEE; background-color: #fdfdfd; cursor: pointer;'>
+                            <h2 style='font-size: 14px; font-weight: 600; margin:0;'>DAY 4</h2>
+                            </summary>
+                            <div style='padding: 8px;'>
+                            <div style='padding-top: .75rem;'>
+                                        <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127976;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>체크아웃 후 가이드 미팅</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128661;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호치민으로 이동</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>중식</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>현지식 점심식사</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>통일궁</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>구 남베트남 대통령궁이자 통일이 선언된 역사적 장소입니다. 100여 개의 방, 지하 벙커, 탱크, 전쟁 전시관 등을 둘러볼 수 있습니다.</div>
+                                            <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EB%B2%A0%ED%8A%B8%EB%82%A8+%ED%86%B5%EC%9D%BC%EA%B6%81/@10.7769995,106.6927272,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f385570472f:0x1787491df0ed8d6a!8m2!3d10.7769942!4d106.6953021!16zL20vMDk4NHg5?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>중앙우체국</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>프랑스 건축가 귀스타브 에펠이 설계하고 1891년 완공된 사이공 중앙우체국은 베트남 르네상스 건축 양식을 보여주는 대표적인 건물로 유명합니다. 내부에서 우표와 엽서 등 다양한 기념품을 구매할 수 있습니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076767484/29e12bd2c33260fd9d40ff86e98b0a5e.jpg_3.jpg' alt='중앙우체국' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EC%82%AC%EC%9D%B4%EA%B3%B5+%EC%A4%91%EC%95%99%EC%9A%B4%EC%B2%B4%EA%B5%AD/@10.7799182,106.6973271,17z/data=!3m1!4b1!4m6!3m5!1s0x31752e8e801c1a47:0xb0f8d5737b239bb2!8m2!3d10.7799129!4d106.699902!16s%2Fm%2F02px4y6?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>북 스트리트</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>20여 개 서점이 모여 작가 행사도 열리는 거리입니다. 이국적인 분위기 속에서 책과 함께 문구류, 엽서 등을 구경하기 좋습니다.</div>
+                                            <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%ED%98%B8%EC%B9%98%EB%AF%BC+%EB%B6%81%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8/@10.7806392,106.6999007,20z/data=!4m6!3m5!1s0x31752fea7f652dfb:0x7ace3d2306ec56f8!8m2!3d10.7806392!4d106.6999007!16s%2Fg%2F11k4l6tmwg?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127963;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>전쟁박물관</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>과거 미군 정보부 건물이던 전쟁 박물관입니다. 베트남 전쟁 및 식민지 시대의 장갑차, 유물, 사진 등을 통해 전쟁의 잔혹성을 보여줍니다.</div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076767484/7df74129f9261ea0cd7fc28a83f1ce9b.jpg_3.jpg' alt='전쟁박물관' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%ED%98%B8%EC%B9%98%EB%AF%BC+%EC%A0%84%EC%A0%84%EB%B0%95%EB%AC%BC%EA%B4%80/@10.7790495,106.6906057,18z/data=!4m6!3m5!1s0x31752f30a23708cf:0x7cd94adf2b1474aa!8m2!3d10.7795106!4d106.6920916!16s%2Fm%2F02pt71k?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128717;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>벤탄시장</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>호치민 최대 규모의 재래시장으로 식료품과 의류, 라탄 가방, 기념품 등 다양한 상품을 구매할 수 있습니다.<br></div>
+                                            <details open='' style='margin-top:8px;'>
+                                <summary style='font-size:12px;color:#007bff;cursor:pointer;display:inline-block;'>&#128444;&#65039; 사진</summary>
+                                <img src='https://product.monkeytravel.com/1076767460/78615ad013bc7bb9ec9c140a6e8e7e3c.jpg_3.jpg' alt='벤탄시장' style='max-width: 100%; height:auto;border-radius:4px;margin-top:8px;' onerror='this.style.display='none';'>
+                                </details>
+                                <div style='font-size:12px;margin-top:4px;'>&#128205; <a href='https://www.google.com/maps/place/%EB%B2%A4%ED%83%84%EC%8B%9C%EC%9E%A5/@10.7725221,106.6954459,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f3f3129e64d:0x8d6b2d79522c7f30!8m2!3d10.7725168!4d106.6980208!16s%2Fm%2F02q30t6?entry=ttu&amp;g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color:#007bff;text-decoration:none;'>위치 보기</a></div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#128134;&#127995;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>마사지</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>아로마 오일 마사지</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 60분/ 마사지사 팁 포함</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#127869;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>석식 및 자유시간</div>
+                                <div style='font-size:12px;margin-top:4px;white-space:pre-wrap;'>&#128221; 자유식 (불포함)</div>
+                                </div>
+                            </div>
+                            <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#9992;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>호치민출발</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>호치민 국제공항 출발</div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </details>
+                        </div>
+                        <div style='margin-bottom: 16px;'>
+                        <details>
+                            <summary style='display: flex; align-items: center; padding: 12px 8px; border-bottom: 1px solid #EEE; background-color: #fdfdfd; cursor: pointer;'>
+                            <h2 style='font-size: 14px; font-weight: 600; margin:0;'>DAY 5</h2>
+                            </summary>
+                            <div style='padding: 8px;'>
+                            <div style='padding-top: .75rem;'>
+                                        <div style='background-color:white;border-radius:8px;border:1px solid #E0E0E0;padding:16px;margin-bottom:16px;display:flex; align-items: flex-start;'>
+                                <div style='width:100px;flex-shrink:0;'>
+                                <div style='font-size:20px;margin-bottom:4px;'>&#9992;&#65039;</div>
+                                <div style='font-size:12px;font-weight:bold;'>&nbsp;</div>
+                                </div>
+                                <div style='flex-grow:1; overflow: hidden;'>
+                                <div style='font-size:13px;font-weight:bold;'>한국도착</div>
+                                <div style='font-size:12px;white-space:pre-wrap;'>인천 국제 공항 도착</div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </details>
+                        </div>
+                        </main></div>
+                    </section>
+                </div>
+
+                <!-- Tab Pane 4: 기타사항 -->
+                <div id="tab-other" class="tab-pane">
+                    <section style='border-radius: 4px;'>
+                        <!-- <h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;font-size:15px;'>기타사항</h2> -->
+                        <div class='info_text02' style='line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;'><div style='max-width: 750px; margin: 24px auto; font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; display: flex; flex-wrap: wrap; align-items: center; box-sizing: border-box;'>
+                        <div style='width: 100%; max-width: 320px; margin-right: 24px; margin-bottom: 24px; box-sizing: border-box;'>
+                            <div style='background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;'>
+                            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQptKNxrSTAvS987wlWHAzCXAZEcKPZrkDrfw&amp;s' alt='윈덤 가든 깜란 리조트' style='width: 100%; height: auto; display: block;' onerror='this.onerror=null; this.src='httpsen;placehold.co/400x300/e2e8f0/cbd5e0?text=No+Image';'>
+                            <div style='padding: 16px 20px;'>
+                                <div style='font-size: 14px; font-weight: bold; color: #2c3e50;'>윈덤 가든 깜란 리조트</div>
+                                <div style='font-size: 12px; color: #7f8c8d; margin-top: 4px;'>Wyndham Garden Cam Ranh Resort</div>
+                            </div>
+                            </div>
+                        </div>
+                        <div style='flex: 1; min-width: 300px; vertical-align: middle; box-sizing: border-box;'>
+                            <div>
+                                    <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>뛰어난 공항 접근성 (깜란 국제공항 차량 5~8분 거리)</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>프라이빗 해변 및 아름다운 롱비치 오션뷰</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>전 객실 독립 빌라 구조, 넓은 개인 수영장</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>가족 친화적 : 키즈클럽, 가족 단위 별 프로그램</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>다양한 식음료 시설 (뷔페, 베트남식·아시아식·세계 요리)</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>럭셔리 스파·피트니스·사우나 등 부대시설</span></div>
+                            <div style='margin-bottom: 6px; line-height: 1.6;'><span style='font-size: 12px; color: #34495e;'>24시간 컨시어지·프론트·벨 서비스 등 맞춤형 고객지원</span></div>
+                                    <div style='margin-top: 20px;'><a href='https://www.wyndhamgardencamranh.com/' target='_blank' style='background-color: #3498db; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 12px;'>웹사이트 바로가기</a></div>
+                            </div>
+                        </div>
+                        </div></div>
+                    </section>
+                    
+                    <!-- 요금표 섹션이 원본에 두 개 있어서, 하나를 기타사항 탭으로 이동시켰습니다. -->
+                    <!-- === REMOVED PRICE TABLE FROM HERE === -->
+                </div>
+
+                <!-- Tab Pane 5: 담당자 정보 -->
+                <div id="tab-contact" class="tab-pane">
+                    <section style='border-radius: 4px;'>
+                        <!-- <h2 style='font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;'>담당자 정보</h2> -->
+                        <table style='margin-top:10px;border: 1px solid #ccc;padding: 8px;text-align: center;width: 100%;border-collapse: collapse;font-size: 15px;'>
+                        <tr>
+                            <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>담당자</th>
+                            <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>메일주소</th>
+                            <th style='background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;'>연락처</th>
+                        </tr>
+                        <tr>
+                            <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>한원희</td>
+                            <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'><a href='mailto:hwh@naeiltour.co.kr'>hwh@naeiltour.co.kr</a></td>
+                            <td style='border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;'>02-6262-5301</td>
+                        </tr>
+                        </table>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+        <!-- === END NEW TAB INTERFACE === -->
+
+	</div>
+	<footer style='font-size: 14px;background: #f2f2f2;padding: 20px;margin-top: 20px;'>
+		<div><strong>(주)내일투어</strong></div>
+		<div>전화 : 02-6262-5000 | 이메일 : info@naeiltour.co.kr<br>사업자등록번호: 110-81-33092 | 관광사업자등록번호: 중구 제2001-07호</div>
+	</footer>
+ 	<img src=https://www.naeiltour.co.kr/mail/mail_confirm.asp?confirmcode=1006054 width=0 height=0>
+</div>
+
+<script>
+  function openTab(evt, tabId) {
+    var i, tabPanes, tabLinks;
+    
+    // 1. 모든 tab-pane을 숨기고 active 클래스 제거
+    tabPanes = document.getElementsByClassName("tab-pane");
+    for (i = 0; i < tabPanes.length; i++) {
+      tabPanes[i].style.display = "none";
+      tabPanes[i].classList.remove("active");
+    }
+    
+    // 2. 모든 tab-link의 active 클래스 제거
+    tabLinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tabLinks.length; i++) {
+      tabLinks[i].classList.remove("active");
+    }
+    
+    // 3. 클릭된 탭과 연결된 tab-pane을 보여주고 active 클래스 추가
+    document.getElementById(tabId).style.display = "block";
+    document.getElementById(tabId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+
+  // 페이지 로드 시 기본 탭 설정
+  document.addEventListener('DOMContentLoaded', function() {
+    // 기본으로 첫 번째 탭(항공 스케줄)을 활성화
+    document.getElementById('tab-flight').style.display = 'block';
+    document.getElementById('tab-flight').classList.add('active');
+    
+    // 첫 번째 탭 버튼에도 active 클래스가 이미 HTML에 있지만, JS로 한 번 더 보장
+    var defaultTabButton = document.querySelector('.tab-link[onclick*="tab-flight"]');
+    if (defaultTabButton) {
+        defaultTabButton.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
