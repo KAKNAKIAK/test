@@ -1,8 +1,10 @@
-<html lang="ko"><head>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  	<meta charset='UTF-8'>
+  	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
   	<title>내일투어 여행견적서</title>
-  	<style type="text/css">
+  	<style type='text/css'>
   	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, feldset, input, textarea, p, blockquote, th, td { margin:0; padding:0; }
   	ol, ul, li { list-style:none;margin:0px; }
   	img { vertical-align:middle; border:0; }
@@ -10,72 +12,35 @@
     /* --- NEW TAB STYLES --- */
     .tab-nav {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
+      flex-wrap: nowrap; /* 탭이 한 줄로 표시되도록 수정 */
       border-bottom: 2px solid #009150;
       margin-top: 30px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      position: relative;
-      width: 100%;
-      min-height: 44px;
+      overflow-x: auto; /* 탭이 넘칠 경우 가로 스크롤 허용 */
+
+      /* 스크롤바 숨기기 (선택 사항, 기능은 유지됨) */
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
     }
-    
-    /* 스크롤바 스타일링 (Chrome, Safari) */
     .tab-nav::-webkit-scrollbar {
-      height: 4px;
+        display: none; /* Webkit (Chrome, Safari) 스크롤바 숨기기 */
     }
-    .tab-nav::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    .tab-nav::-webkit-scrollbar-thumb {
-      background: #009150;
-      border-radius: 2px;
-    }
-    
     .tab-link {
-      width: 120px;
-      height: 40px;
-      padding: 0;
-      font-size: 14px;
+      padding: 10px 16px; /* 탭이 많아져서 패딩 살짝 줄임 */
+      font-size: 14px; /* 탭이 많아져서 폰트 크기 살짝 줄임 */
       font-family: Nanum Gothic, Malgun Gothic, sans-serif;
       font-weight: 600;
       cursor: pointer;
       background-color: #f2f2f2;
       border: 1px solid #ccc;
       border-bottom: none;
-      margin-right: 2px;
-      margin-bottom: -1px;
+      margin-right: 5px;
+      margin-bottom: -1px; /* 탭 줄바꿈 시 아래쪽 테두리와 겹치게 */
       border-radius: 4px 4px 0 0;
       color: #343434;
       outline: none;
       transition: background-color 0.3s, color 0.3s;
-      white-space: nowrap;
-      flex-shrink: 0;
-      text-align: center;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      float: none;
-      position: relative;
+      white-space: nowrap; /* 탭 텍스트 줄바꿈 방지 */
     }
-    
-    @media (max-width: 600px) {
-      .tab-link {
-        width: 100px;
-        font-size: 13px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .tab-link {
-        width: 85px;
-        font-size: 12px;
-      }
-    }
-    
     .tab-link:hover {
       background-color: #e9e9e9;
     }
@@ -84,7 +49,7 @@
       color: #009150;
       border-bottom: 2px solid #ffffff;
       position: relative;
-      top: 1px;
+      top: 1px; /* Adjust based on border-bottom */
       border-top: 2px solid #009150;
       border-left: 1px solid #009150;
       border-right: 1px solid #009150;
@@ -93,7 +58,7 @@
     .tab-content {
       border: 1px solid #009150;
       border-top: none;
-      padding: 8px; /* 25px에서 8px로 대폭 축소 */
+      padding: 10px; /* [수정] 간격 최소화 (기존 25px -> 10px) */
       border-radius: 0 0 4px 4px;
       background-color: #ffffff;
     }
@@ -103,57 +68,73 @@
     .tab-pane.active {
       display: block;
     }
-    
-    /* 테이블 여백도 최소화 */
-    .tab-content table {
-      margin: 0 !important;
+
+    /* [추가] 탭 내부 콘텐츠 간격 강제 축소 */
+    .tab-pane h3 {
+        padding-top: 10px !important;   /* 제목 상단 여백 축소 */
+        padding-bottom: 5px !important; /* 제목 하단 여백 축소 */
+        margin: 0 !important;
     }
-    
-    /* 섹션 여백도 최소화 */
-    .tab-content section {
-      margin: 0 !important;
-      padding: 0 !important;
+    .tab-pane .info_text, 
+    .tab-pane .info_text02,
+    .tab-pane ul,
+    .tab-pane div.air_SKD {
+        padding: 10px !important;       /* 박스 내부 여백 축소 */
+        margin-top: 5px !important;     /* 박스 상단 여백 축소 */
+        margin-bottom: 5px !important;  /* 박스 하단 여백 축소 */
     }
-    
+    .tab-pane table th, 
+    .tab-pane table td {
+        padding: 4px !important;        /* 테이블 셀 내부 여백 축소 */
+    }
     /* --- END NEW TAB STYLES --- */
   	</style>
 </head>
-<body style="color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #f9f9f9;">
-<div style="color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-	<div class="logo" style="font-size: 28px;text-align: center;padding: 25px 0 20px 0;background-color: #f2f2f2;"><img src="https://www.naeiltour.co.kr/_Img/logo_naeiltour.png" style="width:170px;"></div>
-	<div id="conTainer" style="width: 95%;margin: 0 auto;letter-spacing: -1px;margin-top: 30px;margin-bottom: 25px;">
+<body style='color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #f9f9f9;'>
+<div style='color: #343434;font-size: 14px;font-family: Nanum Gothic, Malgun Gothic, sans-serif;max-width: 800px;margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.05);'>
+	<div class='logo' style='font-size: 28px;text-align: center;padding: 25px 0 20px 0;background-color: #f2f2f2;'><img src='https://www.naeiltour.co.kr/_Img/logo_naeiltour.png' style='width:170px;'></div>
+	<div id='conTainer' style='width: 95%;margin: 0 auto;letter-spacing: -1px;margin-top: 30px;margin-bottom: 25px;'>
 
-        <!-- === TOP FIXED CONTENT (New Content) === -->
-		<section style="margin-bottom: 25px;border-radius: 4px;">
-			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;">기본 정보</h2>
+        <section style="margin-bottom: 25px;border-radius: 4px;">
+			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin: 0px;">기본 정보</h2>
 			<div class="section-content" style="padding: 0px 0px;">
 				<div>
-					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;">안내사항</h3>
-					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;">고객님께서 문의하신 상품에 대한 일정 및 견적 안내입니다.<br>더 특별하고 소중한 추억을 만들어 드리기 위해 노력하겠습니다.<br>감사합니다.<br></p>
-				</div>
-				<div>
-					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;">상품명</h3>
-					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;">푸꾸옥 올인클루시브(멜리아빈펄)</p>
-				</div>
-			</div>
-		</section>
-
-		<section style="margin-bottom: 25px;border-radius: 4px;">
-			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;">예약자 정보</h2>
-			<div class="section-content" style="padding: 0px 0px;">
-				<div>
-					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;">예약인원</h3>
-					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;">성인 (만 12세 이상) : 7 명
-					<br>소아 (만 2세~11세) : 4 명
+					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin: 0px;">안내사항</h3>
+					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;"><strong>문의하신 <span style="color:#ff7c00">여행안내 및 견적</span> 입니다.</strong><br><br>안녕하세요,<strong> 한원희 고객님</strong>. 내일투어의 담당 코디네이터 한원희 입니다.<br><br>내일투어를 이용해주셔서 감사합니다.<br>아래는 내일투어 상품을 이용하시는데 <font color="#ef7a00"><strong>필요한 정보와 예약 진행 순서에 대한 안내</strong></font> 입니다.<br>예약 진행이 완료된 이후에는 기존 정보의 변경이 어려우니, 안내 된 내용을 꼼꼼히 살펴봐 주시길 부탁드립니다.<br>더 특별하고 소중한 추억을 만들어 드리기 위해 노력 하겠습니다. 감사합니다.
 					</p>
 				</div>
+				<div>
+					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin: 0px;">상품명</h3>
+					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;">홍콩 3박4일 금까기</p>
+				</div>
+				<div>
+					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin: 0px;">출/도착일</h3>
+					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;">2025년 12월 8일 ~ 2025년 12월 11일</p>
+				</div>
 			</div>
 		</section>
 
 		<section style="margin-bottom: 25px;border-radius: 4px;">
-			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;">요금 안내</h2>
-			<div class="info_price">
-				<table style="width: 100%; border-collapse: collapse; font-size:15px; margin-top: 15px;">
+			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin: 0px;">예약자 정보</h2>
+			<div class="section-content" style="padding: 0px 0px;">
+				<div>
+					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin: 0px;">예약인원</h3>
+					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;line-height: 1.7;">성인 (만 12세 이상) : 2 명
+					<br>소아 (만 2세~11세) :  명
+					<br>유아 (만 2세 미만) :  명
+					</p>
+				</div>
+				<div>
+					<h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin: 0px;">예약자명단</h3>
+					<p class="p_text" style="font-size: 15px;padding: 14px;border: 1px solid #e1e1e1;background-color: #f2f2f2;border-radius: 4px;">여권상의 영문성함이 맞는지 꼭 확인해 주세요!<br><br>HAN/JANGWOOK MR<br>LEE/KYOUNGA MS<br><br>1. 항공권 예약 후 영문이름 및 타이틀 변경은 불가능합니다.<br>2. 영문이름 및 타이틀을 여권상 정보와 다르게 안내해 주신 경우 이에 대한 책임은 고객분들에게 있으므로<br>&nbsp;&nbsp; 정확한 여권상 정보를 확인하여 알려 주시기 바랍니다.<br>3. 영문이름이 다른 경우 기존예약 취소 후 다시 예약해야 하기 때문에 추가비용 발생되거나 또는 여행출발이 <br>&nbsp;&nbsp; 불가능 할 수 있습니다.<br></p>
+				</div>
+			</div>
+		</section>
+
+		<section style="margin-bottom: 25px;border-radius: 4px;">
+			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin: 0px;">요금 안내</h2>
+			<div class="info_price" style="margin-top: 15px;">
+				<table style="width: 100%; border-collapse: collapse; font-size:15px;">
 					<tbody><tr>
 						<th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">내역</th>
 						<th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">1인당 금액</th>
@@ -163,119 +144,186 @@
 					</tr>
 					<tr>
 						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">성인 요금</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">1,179,000</td>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">7</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">8,253,000</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">719,000원</td>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">2</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">1,438,000원</td>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">항공+호텔</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 항공추가요금</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">80,000원</td>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">2</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">160,000원</td>
 						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"></td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 소아 요금</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">1,179,000</td>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">4</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">4,716,000</td>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 할인요금</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">-21,570원</td>
+						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">2</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">-43,140원</td>
 						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"></td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 코드할인</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">-58,950</td>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">11</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-size:15px;">-648,450</td>
-						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">안지모지코드할인</td>
 					</tr>
 					<tr class="total-row">
 						<td colspan="3" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:center;font-weight: bold;font-size:15px;">총 합계</td>
-						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-weight: bold;font-size:15px;">12,320,550</td>
+						<td class="price" style="border: 1px solid #ccc; padding: 8px; text-align: center;text-align:right;font-weight: bold;font-size:15px;">1,554,860원</td>
 						<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-weight: bold;"></td>
 					</tr>
 				</tbody></table>
 			</div>
 		</section>
-        <!-- === END TOP FIXED CONTENT === -->
 
-
-        <!-- === NEW TAB INTERFACE === -->
+ 		<section style="margin-bottom: 25px;border-radius: 4px;">
+			<h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin: 0px;">
+				<span>결제 안내</span>
+			</h2>
+			<div class="overflow-x-auto pay-block" style="margin-top: 15px;">
+				<table style="width: 100%; border-collapse: collapse; font-size:15px;">
+					<thead>
+						<tr class="bg-gray-100">
+							<th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;width: 25%;">내역</th>
+							<th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;width: 25%;">총금액</th>
+							<th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;width: 50%;">입금기한</th>
+						</tr>
+					</thead>
+					<tbody id="payTableBody">
+						<tr>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">입금액(예약금)</td>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">1,300,000원</td>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">2025-11-12 까지</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">잔금</td>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">254,860원</td>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">2025-11-12 까지</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">입금 계좌번호</td>
+							<td colspan="2" style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">KEB하나은행&nbsp;&nbsp;630-005934-561</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">유의사항</td>
+							<td colspan="2" style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;line-height: 1.7;">무통장 입금 시 예약하신 고객의 이름으로 입금해 주세요.<br>타인의 명의로 입금하셨을 경우에는 담당자에게 연락바랍니다.</td>
+						</tr>
+						<tr>
+							<td colspan="3" style="border: 1px solid #ccc; padding: 8px; text-align: left;font-size:15px;line-height: 1.7;">1. 예약금은 입금 기한까지 해당 입금계좌번호로 입금해 주시기 바랍니다.<br>2. 항공요금 신용카드 결제안내<br>(1) 항공사 확인 사항으로 카드 앞면 사본이 필요하고, 할부개월 수도 알려주세요.<br>(2) 본인 카드가 아닌 경우 카드명의자와의 관계를 증빙할수 있는 가족관계증명서 또는 의료보험증 사본을 <br>&nbsp;&nbsp;&nbsp;함께 제출해 주세요.<br>(3) 항공권결제가 불가능한 카드안내<br>&nbsp;&nbsp;&nbsp; - 해외발행 신용(체크)카드 또는 국내 전용 신용(체크)카드 (대한민국 국적기 사용가능)<br>3. 현금 영수증 처리 <a href="http://www.naeiltour.co.kr/customer/receipt.asp?step_no=receipt&amp;board_name=naeil_account_chk" style="background-color:#fe7200;padding:3px;margin-left:5px;font-size:11px;color:#fff;text-decoration:none" target="_blank">현금영수증 ▶</a><br>출발 하루 전날 부터 여행 시작 30일 이내에 내일투어 홈페이지 내에서 신청 가능합니다.<br></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
         <div class="tab-container">
-            <!-- Tab Navigation -->
             <div class="tab-nav">
-                <button class="tab-link active" onclick="openTab(event, 'tab-flight')">항공 스케줄</button>
-                <button class="tab-link" onclick="openTab(event, 'tab-include')">포함/불포함</button>
+                <button class="tab-link active" onclick="openTab(event, 'tab-include')">포함/불포함</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-flight')">항공 스케줄</button>
                 <button class="tab-link" onclick="openTab(event, 'tab-itinerary')">일정표</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-passport')">여권 안내</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-hotel')">호텔안내</button>
                 <button class="tab-link" onclick="openTab(event, 'tab-other')">기타사항</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-terms')">특약규정</button>
             </div>
 
-            <!-- Tab Content -->
             <div class="tab-content">
                 
-                <!-- Tab Pane 1: 항공 스케줄 -->
-                <div id="tab-flight" class="tab-pane active" style="display: block;">
-                    <section style="border-radius: 4px;">
-                        <div class="air_SKD">
-                            <table style="width: 100%; border-collapse: collapse; font-size:15px;">
-                                <tbody><tr>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">편명</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발일</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발지</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발시간</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착일</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착지</th>
-                                    <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착시간</th>
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">CX417</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">12월 8일</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">인천</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">10:00</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">12월 8일</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">홍콩</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">13:15</td>
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> CX416</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 12월 11일</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 푸쿠억</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 16:50</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 12월 11일</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 인천</td>
-                                    <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 21:25</td>
-                                </tr>
-                            </tbody></table>
-                        </div>
-                    </section>
+                <div id="tab-include" class="tab-pane active">
+                    <div>
+                        <h3 style="font-size: 16px;font-weight: 600;padding: 20px 0 10px 5px;margin: 0px;font-weight: 600;">포함 사항</h3>
+                        <ul class="info_text" style="line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;"><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;">● 홍콩 왕복항공권, Tax 및 유류할증료<br>&nbsp;ㄴ케세이 퍼시픽<br><br>●&nbsp;호텔 알렉산드라 투숙<br>&nbsp;ㄴ룸업그레이드, 조식할인 등 다양한 특전 제공<br>※ 확정이후 취소/환불 불가조건 ※<br><br>● 고객 맞춤 추천일정표 및 호텔길라잡이<br><br>● 최대 1억원 여행자보험<br><br>● 각종할인쿠폰<br>&nbsp;ㄴ면세점 할인 쿠폰<br><br>● 홍콩 데이투어 할인예약 서비스<br>ㄴ홍콩필수투어 , 전용차량&amp;가이드, 공항 미팅&amp;샌딩 서비스 등<br>ㄴ추가요금발생</ul></ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 16px;font-weight: 600;padding: 20px 0 10px 5px;margin: 0px;font-weight: 600;">불포함 사항</h3>
+                        <ul class="info_text" style="line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;"><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;">●&nbsp; 현지 개인 경비</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;">● 호텔조식</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;">● 홍콩 숙박세&nbsp;</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;">└ 현장결제&nbsp;</ul></ul>
+                    </div>
                 </div>
 
-                <!-- Tab Pane 2: 포함/불포함 -->
-                <div id="tab-include" class="tab-pane">
-                    <section style="border-radius: 4px;">
-                        <div>
-                            <h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;font-weight: 600;">포함 사항</h3>
-                            <ul class="info_text" style="line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;"><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; line-height: 1.7;">● 홍콩 왕복항공권, Tax 및 유류할증료<br>&nbsp;ㄴ케세이 퍼시픽<br><br>●&nbsp;호텔 알렉산드라 투숙<br>&nbsp;ㄴ룸업그레이드, 조식할인 등 다양한 특전 제공<br>※ 확정이후 취소/환불 불가조건 ※<br><br>● 고객 맞춤 추천일정표 및 호텔길라잡이<br><br>● 최대 1억원 여행자보험<br><br>● 각종할인쿠폰<br>&nbsp;ㄴ면세점 할인 쿠폰<br><br>● 홍콩 데이투어 할인예약 서비스<br>ㄴ홍콩필수투어 , 전용차량&amp;가이드, 공항 미팅&amp;샌딩 서비스 등<br>ㄴ추가요금발생</ul></ul>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 16px;font-weight: 400;padding: 20px 0 10px 5px;margin:0px;font-weight: 600;">불포함 사항</h3>
-                            <ul class="info_text" style="line-height: 22px;padding: 5px 15px;background-color: #f2f2f2;border-radius: 4px;font-size:15px;line-height: 1.7;"><div><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; color: rgb(102, 102, 102); font-family: 굴림, 돋움; letter-spacing: -1px; background-color: rgb(242, 242, 242); border-radius: 4px; font-size: 15px; line-height: 1.7;"><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; border-radius: 4px; line-height: 1.7;">●&nbsp; 현지 개인 경비</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; border-radius: 4px; line-height: 1.7;">● 호텔조식</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; border-radius: 4px; line-height: 1.7;">● 홍콩 숙박세&nbsp;</ul><ul class="info_text" style="margin: 0px; padding: 5px 15px; list-style: none; border-radius: 4px; line-height: 1.7;">└ 현장결제&nbsp;</ul></ul></div></ul>
-                        </div>
-                    </section>
+                <div id="tab-flight" class="tab-pane">
+                    <div class="air_SKD">
+                        <table style="width: 100%; border-collapse: collapse; font-size:15px;">
+                            <tbody><tr>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">편명</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발일</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발지</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">출발시간</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착일</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착지</th>
+                                <th style="background-color: #f2f2f2;border: 1px solid #ccc;padding: 8px;text-align: center;font-size:15px;">도착시간</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">CX417</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">12월 8일</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">인천</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">10:00</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">12월 8일</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">홍콩</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;">13:15</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> CX416</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 12월 11일</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 홍콩</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 16:50</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 12월 11일</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 인천</td>
+                                <td style="border: 1px solid #ccc; padding: 8px; text-align: center;font-size:15px;"> 21:25</td>
+                            </tr>
+                        </tbody></table>
+                    </div>
                 </div>
 
-                <!-- Tab Pane 3: 일정표 -->
                 <div id="tab-itinerary" class="tab-pane">
-                    <section style="border-radius: 4px;">
-                        <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">1일차&nbsp;2025/12/08(월)&nbsp;인천</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 인천국제공항 출발 (약 4시간 소요)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip 홍콩 쳅락콕공항 도착 후 입국수속</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip 호텔 체크인 &amp; 짐정리 후, 본격적인 홍콩여행 LET'S MOVE~</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 소호(SOHO)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- &lt;13년 연속 미슐랭&gt; 완탕면 맛집 '침차이키' Tsim Chai Kee Noodle</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기화병가</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 밤에 펼쳐지는 색다른 야경과 풍경 [빅토리아피크]</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 숙박 : 호텔투숙 및 휴식</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">2일차&nbsp;2025/12/09(화)&nbsp;홍콩</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상 후 개별자유여행</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- IFC 몰 IFC Mall</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 그랜빌 로드 Granville Road</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 란퐁유엔 (蘭芳園) Lan fong yuen</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 레이디스 마켓 Ladies Market</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 가스등계단(홍콩영화단골배경) Duddell Street Steps and Gas Lamps</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 카우키 레스토랑</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 숙박 : 호텔투숙 및 휴식</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">3일차&nbsp;2025/12/10(수)&nbsp;홍콩</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상후 개별 자유여행</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 빅버스 싱글투어-스탠리투어</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 소호(SOHO)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 홍콩의 명물 크리스털 제이드</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">4일차&nbsp;2025/12/11(목)&nbsp;인천</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상 후 체크아웃</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip * 시내-공항 AEL 이용 약 1시간 소요</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 홍콩국제공항 출발 (약 3시간 35분 소요)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 인천국제공항 도착</span></div>
-                    </section>
+                    <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">1일차&nbsp;2025/12/08(월)&nbsp;인천</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 인천국제공항 출발 (약 4시간 소요)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip 홍콩 쳅락콕공항 도착 후 입국수속</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip 호텔 체크인 &amp; 짐정리 후, 본격적인 홍콩여행 LET'S MOVE~</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 소호(SOHO)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- &lt;13년 연속 미슐랭&gt; 완탕면 맛집 '침차이키' Tsim Chai Kee Noodle</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기화병가</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 밤에 펼쳐지는 색다른 야경과 풍경 [빅토리아피크]</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 숙박 : 호텔투숙 및 휴식</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">2일차&nbsp;2025/12/09(화)&nbsp;홍콩</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상 후 개별자유여행</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- IFC 몰 IFC Mall</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 그랜빌 로드 Granville Road</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 란퐁유엔 (蘭芳園) Lan fong yuen</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 레이디스 마켓 Ladies Market</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 가스등계단(홍콩영화단골배경) Duddell Street Steps and Gas Lamps</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 카우키 레스토랑</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 숙박 : 호텔투숙 및 휴식</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">3일차&nbsp;2025/12/10(수)&nbsp;홍콩</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상후 개별 자유여행</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 빅버스 싱글투어-스탠리투어</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 소호(SOHO)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 홍콩의 명물 크리스털 제이드</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">4일차&nbsp;2025/12/11(목)&nbsp;인천</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 기상 후 체크아웃</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 여행 Tip * 시내-공항 AEL 이용 약 1시간 소요</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 홍콩국제공항 출발 (약 3시간 35분 소요)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">- 인천국제공항 도착</span></div>
                 </div>
 
-                <!-- Tab Pane 4: 기타사항 -->
+                <div id="tab-passport" class="tab-pane">
+                    <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;">1. 2025-11-12 까지 여권사본을 담당자의 이메일 또는 팩스로 보내주시기 바랍니다.<br>&nbsp;&nbsp;&nbsp;- 이메일 : hwh@naeiltour.co.kr , 팩스 : 02-6910-0391<br>&nbsp;&nbsp;&nbsp;- 핸드폰 촬영 또는 복사시에는 영문이름/여권번호/발급일/만료일 등이 정확히 보이게 해주세요.<br>&nbsp;&nbsp;&nbsp;- 스마트폰 문자보내기에서 e-Mail 주소 입력 후 발송 가능합니다.<br>&nbsp;&nbsp;&nbsp;- 팩스로 보내신 경우 담당자에게 연락 부탁드립니다.<br>2. 영유아도 여권을 반드시 소지하여 주세요. <br>3. 여권을 신청중이신 분들은 해당구청'여권과'에 신청한 영문명대로 발급되는지 꼭 확인해 주시기 바랍니다. <br>&nbsp;&nbsp;&nbsp;- 여권과 항공권 영문이름이 다를 경우 패널티부과 또는 탑승이 거부될 수 있습니다. <br>4. 여권은 출발일 기준 만료일이 6개월이상 남은 복수여권(PM) 또는 한번도 사용하지 않은 단수여권(PS)만 가능합니다.<br>5. 여권이 훼손된 경우 (공식적인 입·출국 절차와 관계 없는 임의의 낙서나 기념 스탬프 날인 포함)<br>&nbsp;&nbsp;&nbsp;&nbsp;외국 출입국 및 항공권 발권 등에 제한이 있을 수 있으므로, 출발 전 여권을 재발급 받으시기 바랍니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;특히, 신원정보면에 얼룩이 있거나 사증란이 절취되는 등 훼손이 발생한 경우 해외 출입국 심사 시<br>&nbsp;&nbsp;&nbsp;&nbsp;거부사유가 되거나 심한 경우 조사를 받고 형사처벌 등의 불이익을 받을 수 있으므로,<br>&nbsp;&nbsp;&nbsp;&nbsp;여권 훼손 여부를 사전에 확인하시기 바랍니다.<br>6. 여권안내 미확인으로 인한 문제발생시 내일투어가 일체 책임지지 않습니다.</div>
+                </div>
+
+                <div id="tab-hotel" class="tab-pane">
+                    <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">1. 룸타입은 아래와 같이 나누어 집니다.</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">싱글룸(1인), 트윈룸(2인), 더블룸(2인), 트리플룸(3인; 더블베드1개 또는 싱글베드 2개와 간이침대 1개 제공)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">2. 룸 배정은 호텔 체크인시에 이루어집니다. 체크인 전에 미리 룸 배정을 할 수 없습니다.</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">3. 특별한 기간(전시회, 박람회, 축제, 특별행사, 연말행사 등)의 경우 호텔 추가요금이 부과될 수 있습니다.</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">4. 호텔 변경 및 취소 안내(Working Day 기준)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">1) 출발일로부터 10일 이전부터 취소/변경 요청시 예약된 호텔의 첫 1박 숙박요금에 대한 페널티가 부과됩니다.</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">2) 출발일로부터 3일 이전부터 취소/변경 요청시 예약된 호텔 숙박요금 총액이 청구됩니다.(환불 불가)</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">3) 현지에서 추가예약, 변경은 불가합니다.</span><br style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px; background-color: rgb(255, 255, 255);">4) 전시회, 박람회, 축제, 특별행사, 연말행사 등 특별한 기간에는 별도의 변경, 취소 규정이 적용됩니다.</span>
+                    </div>
+                </div>
+
                 <div id="tab-other" class="tab-pane">
-                    <section style="border-radius: 4px;">
-                        <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">※본 상품은 날짜, 인원 제약 없이 예약 가능하나 홈페이지&nbsp;예약 조건은 확정 사항이 아닌<br>항공 스케쥴 및 기준 호텔의 전체 최저 요금 기준으로 실시간 항공·호텔 조회 결과에 따라 변동될 수 있습니다.<br><br>※특정 항공사의 경우 사전 부가 서비스 구입 및 온라인 체크인, 유료 좌석 지정이 불가할 수 있으니<d>해당 내용 담당자에게 확인 부탁드립니다.</d></span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">※미성년자 부모동의서 관련 안내<br>만 18세 미만의 미성년자는 단독 여행 혹은 부모 외 보호자 동반 시 영문 부모 동의서가 필요할 수 있습니다<br>해당 내용 담당자에게 확인 부탁드립니다.</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">※ 하기 입국관련 사항은 개별적으로 해당 국가에 비자 필요 여부 및 입국 가능여부를 확인하셔야 하며<br>미확인으로 인한 문제 발생 시 당사는 일체 책임지지 않습니다.</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">1. 대한민국 국적이 아닌 경우</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">2. 괌/사이판 입국 시 과거 미국 비자 거절 경험이 있는 경우</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">4. 괌/사이판 입국 시 중동 국가 (이란/이라크/시리아/수단/소말리아 등)을 방문 이력이 있는경우</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">4.&nbsp;괌/사이판 입국 시 카보 타지 룰에 저촉되는 경우<br><br></span><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">카보타지 룰<br>미국 본토에서 한국을 경유하여 미국령인 괌/사이판으로 이동 시,<br>한 번은 미국 항공사를 이용해야 한다는 자국 항공시장 보호법입니다.</span></p><p style="color: rgb(102, 102, 102); font-family: 굴림, 돋움; font-size: 15px; letter-spacing: -1px;"><span style="font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; color: rgb(0, 0, 0); letter-spacing: normal; background-color: rgb(255, 255, 255);">예)미국출발 (미국 국적기) - 한국도착 - 괌사이판 행 (한국 국적기) : O 입국 가능<br>미국출발 (한국 국적기) - 한국도착 - 괌사이판 행 (한국 국적기) : X 입국 불가</span></p></div>
-                    </section>
+                    <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">※본 상품은 날짜, 인원 제약 없이 예약 가능하나 홈페이지&nbsp;예약 조건은 확정 사항이 아닌<br>항공 스케쥴 및 기준 호텔의 전체 최저 요금 기준으로 실시간 항공·호텔 조회 결과에 따라 변동될 수 있습니다.<br><br>※특정 항공사의 경우 사전 부가 서비스 구입 및 온라인 체크인, 유료 좌석 지정이 불가할 수 있으니 <br>해당 내용 담당자에게 확인 부탁드립니다.</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">※미성년자 부모동의서 관련 안내<br>만 18세 미만의 미성년자는 단독 여행 혹은 부모 외 보호자 동반 시 영문 부모 동의서가 필요할 수 있습니다 <br>해당 내용 담당자에게 확인 부탁드립니다.</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">※ 하기 입국관련 사항은 개별적으로 해당 국가에 비자 필요 여부 및 입국 가능여부를 확인하셔야 하며 <br>미확인으로 인한 문제 발생 시 당사는 일체 책임지지 않습니다.</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">1. 대한민국 국적이 아닌 경우</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">2. 괌/사이판 입국 시 과거 미국 비자 거절 경험이 있는 경우</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">4. 괌/사이판 입국 시 중동 국가 (이란/이라크/시리아/수단/소말리아 등)을 방문 이력이 있는경우</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">4. <span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">괌/사이판 입국 시 카보 타지 룰에 저촉되는 경우<br><br></span></span><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">카보타지 룰<br>미국 본토에서 한국을 경유하여 미국령인 괌/사이판으로 이동 시,<br>한 번은 미국 항공사를 이용해야 한다는 자국 항공시장 보호법입니다.</span></p>
+                        <p><span style="FONT-SIZE: 13px; FONT-FAMILY: -apple-system, BlinkMacSystemFont, &quot;Malgun Gothic&quot;, &quot;맑은 고딕&quot;, helvetica, &quot;Apple SD Gothic Neo&quot;, helvetica, &quot;나눔바른고딕 옛한글&quot;, &quot;NanumBarunGothic YetHangul&quot;, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">예)미국출발 (미국 국적기) - 한국도착 - 괌사이판 행 (한국 국적기) : O 입국 가능<br>미국출발 (한국 국적기) - 한국도착 - 괌사이판 행 (한국 국적기) : X 입국 불가</span></p></div>
+                </div>
+
+                <div id="tab-terms" class="tab-pane">
+                    <div class="info_text02" style="line-height: 22px;padding: 15px 15px;background-color: #f2f2f2;border-radius: 4px;margin: 10px 0;font-size:15px;border: 1px solid #ccc;background-color: #fff;line-height: 1.7;"><p>[특별약관 적용]</p>
+                        <p>■ 본 여행상품은 청약에 대한 승인의 의사표시로써 예약금을 지불한 시점부터 계약이 성립 확정되며,&nbsp;<br>계약해제 요청 시에는 귀책사유에 따라 취소 수수료가 부과 됩니다.<br><br>■ 본&nbsp;상품은 개별 자유여행 상품으로 항공, 패스, 호텔, 보험 각각의 환불 수수료가 발생하므로,&nbsp;<br>공정거래위원회에서 고시하는 소비자분쟁해결기준과 다른 별도의 특별약관 규정에 의거하여 적용됩니다.<br><br>■본 상품은 예약확정 후, 잔금완납시점에 고객님의 예약시점보다 급격한 환율변동시 결제금액이 추가될수 있어 이점 참고부탁드립니다.<br><br>■취소는 업무시간 내 접수 시 확인 및 적용이 가능합니다 .<br>업무시간외 접수한 경우에는 익일(영업일이 아닌 경우 다음 영업일)에 접수 한 것으로 간주됩니다.<br>업무시간은 월요일~금요일 09:00~18:00 이며, 주말 및 공휴일, 주중 09:00~18:00 외 시간은 업무시간에 해당되지 않습니다.<br><br>■예약금&nbsp;지불 후 취소시 취소 시점/출발여부와 관계 없이&nbsp;<br>예약업무진행에 관한 여행업무취급수수료 1인 5만원은 환불 불가합니다<br>기타&nbsp;예약에 대한 규정은&nbsp;하기 내용에&nbsp;따릅니다.<br><br>1. 항공권<br>1-1) 항공권 구입 후 출도착 도시 변경이 불가 할 수 있습니다.<br>1-2) 항공권 구입 후 출발 날짜&nbsp; 변경이 불가 할 수 있습니다.<br>1-3) 항공권 구입 후 귀국 날짜 변경을 요청하시면 별도의 항공사 수수료와 3만원의 여행업무 취급수수료가 발생 되며, <br>항공TAX 및 예약 클래스별 차액이 청구됩니다. <br>1-4) 항공권 구입 후 편도를 이용한 귀국편 항공권은 환불이 불가능합니다.<br>1-5)특정 항공사 항공권&nbsp;구입 취소시 항공사 특성상 환불은 최장 30일 소요될 수 있습니다. <br>** 항공사 별 출발전 예약 변경 수수료는 예약 하신 항공사에 맞춰 추후 안내 드립니다.<br>&nbsp; </p>
+                        <p>&nbsp;</p><table cellspacing="0" border="0">
+                        <colgroup width="198"></colgroup>
+                        <colgroup width="127"></colgroup>
+                        <tbody>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" colspan="2" align="center"><font color="#000000">&nbsp;항공 취소/환불&nbsp;규정</font></td></tr>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" align="center"><font color="#000000">출발 91일 이전</font></td>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" valign="middle" align="center"><font color="#000000">없음</font></td></tr>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" align="center"><font color="#000000">출발 90일 이내~61일 이전</font></td>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" valign="middle" align="center" sdnum="1042;" sdval="40000"><font color="#000000">140,000</font></td></tr>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" align="center"><font color="#000000">출발 60일 이내~31일 이전</font></td>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" valign="middle" align="center" sdnum="1042;" sdval="80000"><font color="#000000">180,000</font></td></tr>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" align="center"><font color="#000000">출발 30일 이내~출발당일</font></td>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" valign="middle" align="center" sdnum="1042;" sdval="120000"><font color="#000000">220,000</font></td></tr>
+                        <tr>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" height="25" valign="middle" align="center"><font color="#000000">노쇼 패널티</font></td>
+                        <td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid" valign="middle" align="center" sdnum="1042;" sdval="120000"><font color="#000000">120,000</font></td></tr></tbody></table><p>&nbsp;</p>
+                        <p><br>2. 호텔 변경 및 취소 안내<br>2-1) 출발일 30일 이전까지 취소/변경 요청시 패널티가 없습니다(일부 호텔의 경우, 취소마감일에 따라 패널티가 부과될 수 있습니다).<br>2-2) 출발일 29일 이전부터 21일 이전까지 취소/변경 요청시 예약된 호텔의 첫 1박 숙박요금에 대한 페널티가 부과됩니다.<br>2-3) 출발일로부터 20일(업무일 기준) 이전부터 취소/변경 요청시 예약된 호텔 숙박요금 총액이 청구됩니다.(환불 불가)<br>2-4) 현지에서 추가예약, 변경은 불가합니다.<br>2-5) 전시회, 박람회, 축제, 특별행사, 연말행사 등 특정 기간에는 별도의 변경 및 취소 규정이 적용됩니다.<br>2-6)&nbsp;성탄전일 이나 연말일 등 갈라디너를&nbsp;운영하는 호텔에 경우&nbsp;해당되는 기간에 투숙하는 모든 고객은 의무적으로 갈라디너를 추가하여 예약해야 하며 <br>추가에 따른 비용은 사전 결제가 요청되거나, 현지에서 호텔이 직접 지불 요청을 할 수 있고 자세한 내용은 담당자가 별도 안내 드립니다.<br><br>3. 교통패스 및 입장권 등 기타 현지에서 사용 가능한 예약권<br>이미 발권이 된 상태에서는 취소, 변경은 되지 않으므로 이 부분은 환불되지 않습니다<br><br>4. 현지 차량 및 투어 변경 및 취소 안내<br>출발일로 부터 14일 이전부터 (업무일 기준) 취소/환불 불가 합니다.<br><br>5. 기타 안내<br>1) 개별항공과는 다른 그룹항공 좌석 이용 시, 실 명단이 들어가는 시점부터는(출발 3주전) 환불이 불가합니다.<br>2) 항공 스케줄 및 운항관련 정보는 항공사 사정에 따라 사전예고 없이 변동될 수 있습니다. 해당 사항의 경우 항공사<br>&nbsp;&nbsp;&nbsp; 규정에 우선하여 처리되는 점 안내드립니다(여행사 자체 및 추가 보상 불가).<br>3) 상기 특약규정은 내일투어 여행약관 기준 제 6조(특약)와 제 15조에 근거한 내용임을 알려드리며 일반여행업 표준약관에 우선됩니다.<br>4) 여권상의 문제 발생으로 인한 상품 진행의 문제가 있을 경우 여행사의 책임이 없음을 알려드립니다(영문성함 오류 및 만료일 기한 초과 등).<br>5) 국제유가 상승에 따라 유류할증료는 잔금 결제 이후에도 추가 요청 될 수 있습니다.<br>6) 본 특약규정은 하기의 상황에도 적용됩니다. <br>6-1) 천재 지변에 의한 항공편 결항 및 호텔 진행사항에 대해서는 여행사는 책임이 없음을 알려드립니다.<br>6-2) 여행자의 3촌 이내 친족이 사망한 경우<br>6-3) 질병 등 여행자의 신체에 이상이 발생하여 여행 참가가 불가능한 경우(임신, 사고 등),<br>6-4) 배우자 또는 직계존비속이 신체이상으로 3일 이상 병원(의원)에 입원하여 여행 출발 전까지 퇴원이 곤란한 경우</p>
+                        <br><br><a href="http://www.naeiltour.co.kr/policy/clause.asp" target="_blank" style="text-decoration: none;color: #555;">표준여행약관 보기</a> &gt;
+                    </div>
                 </div>
 
             </div>
         </div>
-        <!-- === END NEW TAB INTERFACE === -->
-
-        <!-- === NEW BOTTOM FIXED CONTENT === -->
         <section style="margin-top: 30px; margin-bottom: 25px;border-radius: 4px;">
             <h2 style="font-size: 18px;color: #009150;padding: 0 0 6px 5px;border-radius: 4px;border-bottom: 2px solid #009150;margin:0px;">담당자 정보</h2>
             <table style="margin-top:10px;border: 1px solid #ccc;padding: 8px;text-align: center;width: 100%;border-collapse: collapse;font-size: 15px;">
@@ -291,14 +339,12 @@
                 </tr>
             </tbody></table>
         </section>
-        <!-- === END BOTTOM FIXED CONTENT === -->
-
-	</div>
-	<footer style="font-size: 14px;background: #f2f2f2;padding: 20px;margin-top: 20px;">
+        </div>
+	<footer style='font-size: 14px;background: #f2f2f2;padding: 20px;margin-top: 20px;'>
 		<div><strong>(주)내일투어</strong></div>
 		<div>전화 : 02-6262-5000 | 이메일 : info@naeiltour.co.kr<br>사업자등록번호: 110-81-33092 | 관광사업자등록번호: 중구 제2001-07호</div>
 	</footer>
- 	<img src="https://www.naeiltour.co.kr/mail/mail_confirm.asp?confirmcode=1006076" width="0" height="0">
+ 	<img src="https://www.naeiltour.co.kr/mail/mail_confirm.asp?confirmcode=1006067" width="0" height="0">
 </div>
 
 <script>
@@ -326,16 +372,18 @@
 
   // 페이지 로드 시 기본 탭 설정
   document.addEventListener('DOMContentLoaded', function() {
-    // 기본으로 첫 번째 탭(항공 스케줄)을 활성화
-    document.getElementById('tab-flight').style.display = 'block';
-    document.getElementById('tab-flight').classList.add('active');
+    // '포함/불포함' 탭을 기본으로 활성화
+    var defaultTabId = 'tab-include';
+    document.getElementById(defaultTabId).style.display = 'block';
+    document.getElementById(defaultTabId).classList.add('active');
     
-    // 첫 번째 탭 버튼에도 active 클래스가 이미 HTML에 있지만, JS로 한 번 더 보장
-    var defaultTabButton = document.querySelector('.tab-link[onclick*="tab-flight"]');
+    // 첫 번째 탭 버튼('포함/불포함')에 active 클래스 추가
+    var defaultTabButton = document.querySelector('.tab-link[onclick*="' + defaultTabId + '"]');
     if (defaultTabButton) {
         defaultTabButton.classList.add('active');
     }
   });
 </script>
 
-</body></html>
+</body>
+</html>
